@@ -1,0 +1,138 @@
+/* ---------- RESET & BASE ---------- */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll only */
+  overflow-y: auto;   /* Allow vertical scroll if content overflows */
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ---------- PAGE CONTAINER ---------- */
+.page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;       /* centers vertically */
+  flex-direction: column;
+  text-align: center;
+  padding: 0 1rem;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+}
+
+/* ---------- HEADINGS ---------- */
+h1, h2, h3 {
+  margin: 0.5rem 0;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  line-height: 1.2;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #FFD700;
+  color: #000;
+  box-shadow: 0 0 25px rgba(255,215,0,0.5);
+  transition: transform 0.2s ease;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- RESPONSIVE TEXT ---------- */
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.3rem; }
+}
+
+
+/* ---------- LIGHTNING EFFECT ---------- */
+.lightning-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.lightning-bolt {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  width: 3px;
+  height: 200%; /* covers full viewport + extra */
+  background: linear-gradient(
+  to bottom,
+  rgba(255, 255, 200, 1) 0%,   /* slightly white center */
+  rgba(255, 215, 0, 0.9) 20%,
+  rgba(255, 215, 0, 0.3) 70%,
+  rgba(255, 215, 0, 0) 100%
+);
+  transform: translateX(-50%) rotate(5deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 998;
+  box-shadow: 0 0 60px 20px rgba(255, 215, 0, 0.9);
+
+  border-radius: 2px;
+  mix-blend-mode: screen;
+}
+
+.lightning-bolt:nth-child(2) {
+  left: 48%;
+  transform: translateX(-50%) rotate(-8deg);
+}
+
+/* Animation: bolt travels downward and flickers */
+@keyframes strike {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100%) rotate(5deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0%) rotate(5deg);
+  }
+  30% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0%) rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0%) rotate(5deg);
+  }
+}
+
+.strike-animation {
+  animation: strike 0.6s ease-in-out forwards;
+}
