@@ -125,23 +125,23 @@ function Finale() {
 
       {showImage && (
         <motion.img
-          src="/me.png"
-          alt="Birthday Celebration"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          style={{
-            position: "absolute",
-            
-            left: "3%",
-            transform: "translate(-50%, -50%)",
-            width: "100%",
-            maxWidth: "400px",
-            borderRadius: "20px",
-            boxShadow: "0 0 40px rgba(255,215,0,0.4)",
-            zIndex: 10,
-          }}
-        />
+  src="/me.png"
+  alt="Birthday Celebration"
+  initial={{ opacity: 0, scale: 0.5 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  style={{
+    display: "block",
+    margin: "2rem auto 1rem auto",   // centers horizontally in normal flow
+    width: "80%",
+    maxWidth: "400px",
+    height: "auto",
+    borderRadius: "20px",
+    boxShadow: "0 0 40px rgba(255,215,0,0.4)",
+    zIndex: 10,
+  }}
+/>
+
       )}
 
       {showButton && (
@@ -152,7 +152,7 @@ function Finale() {
           onClick={handleViewDetails}
           style={{
             position: "absolute",
-            top: "calc(50% + 230px)",
+            top: "calc(50% + 290px)",
             left: "50%",
             transform: "translateX(-50%)",
             backgroundColor: "#000",
