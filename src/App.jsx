@@ -152,8 +152,8 @@ function Finale() {
           onClick={handleViewDetails}
           style={{
             position: "absolute",
-            top: "calc(50% + 290px)",
-            left: "50%",
+            top: "calc(50% + 270px)",
+            left: "10%",
             transform: "translateX(-50%)",
             backgroundColor: "#000",
             color: "#FFD700",
